@@ -14,13 +14,15 @@ export const styles = StyleSheet.create({
     info:{
       flexDirection:'column',
       width:'100%',
-      height:75,
+      height:90,
       alignItems:'center',
       textAlign:'center',
       fontWeight: 'bold',
       textAlignVertical:'bottom',
       backgroundColor:'#6a5acd',
       fontSize:25,
+      color:'#fff',
+      paddingBottom:5,
     },
     text:{
       flexDirection:'column',
@@ -32,6 +34,7 @@ export const styles = StyleSheet.create({
       textAlignVertical:'bottom',
       backgroundColor:'#708090',
       fontSize:20,
+      paddingBottom:5,
     },
   });
   
