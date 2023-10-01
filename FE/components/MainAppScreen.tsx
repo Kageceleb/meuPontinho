@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Alert, Button, Text, View } from 'react-native';
-import { styles } from './styles';
+import { styles } from '../styles';
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObject, watchHeadingAsync, watchPositionAsync, LocationAccuracy} from 'expo-location'
 import MapView, {Marker} from 'react-native-maps';
 
