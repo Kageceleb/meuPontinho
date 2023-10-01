@@ -36,6 +36,28 @@ export const styles = StyleSheet.create({
       fontSize:20,
       paddingBottom:5,
     },
+    header: {
+      width:'100%',
+      height:90,
+      flexDirection:'row',
+      backgroundColor:'#6a5acd',
+      alignItems: 'baseline',
+      paddingTop: 45,
+    },
+    headerTitle: {
+      fontSize:30,
+      textAlign: 'center',
+      fontWeight: 'bold',
+      textAlignVertical:'bottom',
+      color: '#fff',
+    },
+    headerSubItems: {
+      width: '25%',
+      fontSize:15,
+      textAlign: 'center',
+      textAlignVertical:'bottom',
+      color: '#fff',
+    },
     btsContainer: {
       flexDirection: 'row',
       alignItems: 'stretch',
@@ -48,8 +70,8 @@ export const styles = StyleSheet.create({
       justifyContent: 'space-between',
     },
     btsInnerSpace: {
-      height: 5,
-      width: 5,
+      height: 10,
+      width: 10,
     },
   });
   

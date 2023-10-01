@@ -4,12 +4,13 @@ import { Alert, Button, Text, View } from 'react-native';
 import { styles } from '../styles';
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObject, watchHeadingAsync, watchPositionAsync, LocationAccuracy} from 'expo-location'
 import MapView, {Marker} from 'react-native-maps';
+import { useNavigation } from '@react-navigation/native';
 
 const MainAppScreen = () => {
 
-    
-    const [location, setLocation] = useState<LocationObject | null>(null);
+    const navigation = useNavigation();
 
+    const [location, setLocation] = useState<LocationObject | null>(null);
     const mapRef = useRef<MapView>(null)
     
     async function requestLocationPermition() {
@@ -44,9 +45,15 @@ const MainAppScreen = () => {
 
         <View style={styles.container}>
             <StatusBar style="auto" />
-            <Text style={styles.info}>Meu Pontinho</Text>
+            <View style={styles.header}>
+                <Text style={styles.headerSubItems} onPress={() => navigation.goBack()}>Sair</Text>
+                <Text style={styles.headerTitle}>Meu Pontinho</Text>
+                <Text style={styles.headerSubItems}>Opções</Text>
+
+            </View>
             <Text style={styles.text}>Nome da Disciplina</Text>
             <Text style={styles.text}>Nome do Aluno da Silva Soares</Text>
+
             {location &&
             <MapView
             ref={mapRef}
@@ -66,9 +73,7 @@ const MainAppScreen = () => {
             />
             </MapView>}
 
-            <Text style={styles.text}>Entrada</Text>
             <Text style={styles.text}>Referência: 08:00</Text>
-            <Text style={styles.text}>Contador (cronometro)</Text>
             
 
             <View style={styles.btsContainer}>
