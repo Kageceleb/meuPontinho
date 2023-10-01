@@ -36,5 +36,20 @@ export const styles = StyleSheet.create({
       fontSize:20,
       paddingBottom:5,
     },
+    btsContainer: {
+      flexDirection: 'row',
+      alignItems: 'stretch',
+      justifyContent: 'space-evenly',
+      padding: 5,
+    },
+    btsInnerContainer: {
+      width: 170,
+      alignItems: 'stretch',
+      justifyContent: 'space-between',
+    },
+    btsInnerSpace: {
+      height: 5,
+      width: 5,
+    },
   });
   

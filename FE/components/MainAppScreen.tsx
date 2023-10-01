@@ -43,35 +43,51 @@ const MainAppScreen = () => {
     return (
 
         <View style={styles.container}>
-        <StatusBar style="auto" />
-        <Text style={styles.info}>Meu Pontinho</Text>
-        <Text style={styles.text}>Nome da Disciplina</Text>
-        <Text style={styles.text}>Nome do Aluno da Silva Soares</Text>
-        {location &&
-        <MapView
-        ref={mapRef}
-        style={styles.map}
-        initialRegion={{
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-        latitudeDelta: 0.005,
-        longitudeDelta: 0.005
-        }}
-        > 
-        <Marker 
-        coordinate={{
+            <StatusBar style="auto" />
+            <Text style={styles.info}>Meu Pontinho</Text>
+            <Text style={styles.text}>Nome da Disciplina</Text>
+            <Text style={styles.text}>Nome do Aluno da Silva Soares</Text>
+            {location &&
+            <MapView
+            ref={mapRef}
+            style={styles.map}
+            initialRegion={{
             latitude: location.coords.latitude,
-            longitude: location.coords.longitude
-
-        }}
+            longitude: location.coords.longitude,
+            latitudeDelta: 0.005,
+            longitudeDelta: 0.005
+            }}
+            > 
+            <Marker 
+                coordinate={{
+                    latitude: location.coords.latitude,
+                    longitude: location.coords.longitude
+                }}
             />
-        </MapView>}
-        <Text style={styles.text}>Entrada</Text>
-        <Text style={styles.text}>Referência: 08:00</Text>
-        <Text style={styles.text}>Contador (cronometro)</Text>
-        <Button color='#6a5acd' title='Entrada'  onPress={() => Alert.alert('Simple Button pressed')}/>
-        <Text style={styles.text}></Text>
+            </MapView>}
 
+            <Text style={styles.text}>Entrada</Text>
+            <Text style={styles.text}>Referência: 08:00</Text>
+            <Text style={styles.text}>Contador (cronometro)</Text>
+            
+
+            <View style={styles.btsContainer}>
+                <View style={styles.btsInnerContainer}>
+                    <Button color='#6a5acd' title='Entrada' onPress={() => Alert.alert('Simple Button pressed')}/>
+                    <View style={styles.btsInnerSpace}></View>
+                    <Button color='#6a5acd' title='Saída' onPress={() => Alert.alert('Simple Button pressed')}/>
+                </View>
+
+                <View style={styles.btsInnerSpace}></View>
+
+                <View style={styles.btsInnerContainer}>
+                    <Button color='#6a5acd' title='Saída Intervalo' onPress={() => Alert.alert('Simple Button pressed')}/>
+                    <View style={styles.btsInnerSpace}></View>
+                    <Button color='#6a5acd' title='Retorno Intervalo' onPress={() => Alert.alert('Simple Button pressed')}/>
+                </View>
+            </View>
+
+            <Text style={styles.text}></Text>
         </View>
         
     );
