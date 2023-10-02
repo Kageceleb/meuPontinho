@@ -14,7 +14,7 @@ namespace meuPontinhoAPI.Infrastructure {
             => optionsBuilder.UseMySQL(
                 "Server=localhost;" +
                 "Port=3306;Database=internshipSchedule;" +
-                "User Id=root" +
+                "User Id=root;" +
                 "Password=root"
                 );
         

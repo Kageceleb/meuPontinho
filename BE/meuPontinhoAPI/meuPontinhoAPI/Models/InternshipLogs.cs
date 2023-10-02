@@ -12,16 +12,16 @@ namespace meuPontinhoAPI.Models {
 
         public string school { get; private set; }
 
-        public string date { get; private set; }
+        public string moment { get; private set; }
 
         public int logType { get; private set; }
 
         public int id { get; private set; }
 
-        public InternshipLogs(string student, string school, string date, int logType) {
+        public InternshipLogs(string student, string school, string moment, int logType) {
             this.student = student;
             this.school = school;
-            this.date = date;
+            this.moment = moment;
             this.logType = logType;
         }
     }
