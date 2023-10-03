@@ -33,7 +33,7 @@ type InternshipLog = {
   
 //===============================================================================================================
 
-db.transaction((tx: { executeSql: (arg0: string) => void; }) => {
+db.transaction((tx) => {
     
     tx.executeSql(
       `CREATE TABLE IF NOT EXISTS students (
