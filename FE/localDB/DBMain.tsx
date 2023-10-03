@@ -6,28 +6,29 @@ const db = SQLite.openDatabase(
     (error) => console.error('Erro ao iniciar Banco de Dados', error)
 );
 
+
 //===============================================================================================================
 
 type Student = {
-    ra: string;
-    name: string;
-    course: string;
-    supervisor: string;
-    localSupervisor: string;
-    password: string;
+    ra: String;
+    name: String;
+    course: String;
+    supervisor: String;
+    localSupervisor: String;
+    password: String;
 };
   
 type School = {
-    cnpj: string;
-    name: string;
-    address: string;
+    cnpj: String;
+    name: String;
+    address: String;
 };
   
 type InternshipLog = {
     id?: number;
-    student: string;
-    school: string;
-    date: string;
+    student: String;
+    school: String;
+    date: String;
     logType: number;
 };
   
@@ -72,12 +73,12 @@ db.transaction((tx) => {
 //===============================================================================================================
 
 export const insertStudent = (
-    ra: string,
-    name: string,
-    course: string,
-    supervisor: string,
-    localSupervisor: string,
-    password: string
+    ra: String,
+    name: String,
+    course: String,
+    supervisor: String,
+    localSupervisor: String,
+    password: String
     ) => {
     db.transaction((tx) => {
         tx.executeSql(
@@ -94,9 +95,9 @@ export const insertStudent = (
 };
   
 export const insertSchool = (
-    cnpj: string, 
-    name: string, 
-    address: string
+    cnpj: String, 
+    name: String, 
+    address: String
     ) => {
     db.transaction((tx) => {
         tx.executeSql(
