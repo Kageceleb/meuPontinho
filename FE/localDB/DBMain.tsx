@@ -2,8 +2,8 @@ import SQLite from 'react-native-sqlite-storage';
 
 const db = SQLite.openDatabase(
   { name: 'internshipSchedule.db', location: 'default' },
-  () => console.log('Database opened'),
-  (error) => console.error('Error opening database', error)
+  () => console.log('Banco de Dados iniciado'),
+  (error) => console.error('Erro ao iniciar Banco de Dados', error)
 );
 
 //===============================================================================================================
