@@ -5,36 +5,11 @@ import { styles } from '../styles';
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObject, watchHeadingAsync, watchPositionAsync, LocationAccuracy } from 'expo-location'
 import MapView, { Marker } from 'react-native-maps';
 import { useNavigation } from '@react-navigation/native';
-
-const DATA = [
-    {
-        title: 'entrada',
-        data: ["08:00"],
-
-    },
-    {
-        title: 'saidaIntervalo',
-        data: ["12:00"],
+import { LogType } from './LogType';
 
 
-    },
-    {
-        title: 'voltaIntervalo',
-        data:
-            ["12:15"],
-
-    },
-    {
-        title: 'saida',
-        data: ["14:00"],
-
-
-    },
-];
 const MainAppScreen = () => {
-
-
-
+    const [visibleModal, setVisibleModal] = useState(false)
     const navigation = useNavigation();
 
     const [location, setLocation] = useState<LocationObject | null>(null);
@@ -105,27 +80,16 @@ const MainAppScreen = () => {
 
             <View style={styles.btsContainer}>
                 <View style={styles.btsInnerContainer}>
-                    <Button color='#6a5acd' title='marcacao' onPress={() => {
-                        <Modal visible={true}         animationType="slide"
-                        >{<SectionList
-                            sections={DATA}
-                            keyExtractor={(item, index) => item + index}
-                            renderItem={({ item }) => (
-                                <View style={styles.btsInnerContainer}>
-                                    <Text style={styles.btsInnerContainer}>{item}</Text>
-                                </View>
-                            )}
-                            renderSectionHeader={({ section: { title } }) => (
-                                <Text style={styles.header}>{title}</Text>
-                            )}
-                        />}</Modal>
-                    }} />
-
-
-
+                    <Button color='#6a5acd' title='Entrada' onPress={() => setVisibleModal(true)} />
                     <View style={styles.btsInnerSpace}></View>
                     <Button color='#6a5acd' title='=valor selecionado' onPress={() => Alert.alert('Marcação realizada')} />
                 </View>
+                <Modal
+                visible={visibleModal}
+                transparent={true}
+                onRequestClose={ ()=> setVisibleModal(false)}
+                animationType="slide"
+                >{<LogType handleClose={ ()=> setVisibleModal(false)}/>}</Modal>
             </View>
 
             <Text style={styles.text}></Text>
