@@ -1,33 +1,33 @@
 import { useEffect, useState, useRef } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Alert, Button, FlatList, Modal, SafeAreaView, SectionList, Text, View } from 'react-native';
-import { styles } from '../styles';
+import { styles } from '../../styles';
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObject, watchHeadingAsync, watchPositionAsync, LocationAccuracy } from 'expo-location'
 import MapView, { Marker } from 'react-native-maps';
 import { useNavigation } from '@react-navigation/native';
-import { LogType } from './LogType';
+import { LogType } from '../components/Modal';
+import Routes from '../routes';
+import TabRoutes from '../routes/tab.routes';
 
 
 const MainAppScreen = () => {
+    // const navigation = useNavigation();
     const [visibleModal, setVisibleModal] = useState(false)
-    const navigation = useNavigation();
 
+    //-----MAP----//
     const [location, setLocation] = useState<LocationObject | null>(null);
     const mapRef = useRef<MapView>(null)
 
     async function requestLocationPermition() {
         const { granted } = await requestForegroundPermissionsAsync()
-
         if (granted) {
             const currentPosition = await getCurrentPositionAsync();
             setLocation(currentPosition);
         }
     }
-
     useEffect(() => {
         requestLocationPermition();
     }, [])
-
     useEffect(() => {
         watchPositionAsync({
             accuracy: LocationAccuracy.Highest,
@@ -42,24 +42,22 @@ const MainAppScreen = () => {
             })
         })
     }, [])
-
     return (
 
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <StatusBar style="auto" />
             <View style={styles.header}>
-                <Text style={styles.headerSubItems} onPress={() => navigation.goBack()}>Sair</Text>
+                <Text style={styles.headerSubItems} onPress={() => {}/*navigation.goBack()*/}>Sair</Text>
                 <Text style={styles.headerTitle}>Meu Pontinho</Text>
                 <Text style={styles.headerSubItems}>Opções</Text>
 
             </View>
             <Text style={styles.text}>Nome da Disciplina</Text>
             <Text style={styles.text}>Nome do Aluno da Silva Soares</Text>
-
             {location &&
                 <MapView
-                    ref={mapRef}
                     style={styles.map}
+                    ref={mapRef}
                     initialRegion={{
                         latitude: location.coords.latitude,
                         longitude: location.coords.longitude,
@@ -73,31 +71,24 @@ const MainAppScreen = () => {
                             longitude: location.coords.longitude
                         }}
                     />
-                </MapView>}
-
+                </MapView>
+            }
             <Text style={styles.text}>Referência: 08:00</Text>
-
-
-            <View style={styles.btsContainer}>
+            <View>
                 <View style={styles.btsInnerContainer}>
                     <Button color='#6a5acd' title='Entrada' onPress={() => setVisibleModal(true)} />
                     <View style={styles.btsInnerSpace}></View>
                     <Button color='#6a5acd' title='=valor selecionado' onPress={() => Alert.alert('Marcação realizada')} />
                 </View>
                 <Modal
-                visible={visibleModal}
-                transparent={true}
-                onRequestClose={ ()=> setVisibleModal(false)}
-                animationType="slide"
-                >{<LogType handleClose={ ()=> setVisibleModal(false)}/>}</Modal>
+                    visible={visibleModal}
+                    transparent={true}
+                    onRequestClose={() => setVisibleModal(false)}
+                    animationType="slide"
+                >{<LogType handleClose={() => setVisibleModal(false)} />}</Modal>
             </View>
 
-            <Text style={styles.text}></Text>
-        </View>
-
+        </SafeAreaView>
     );
-
-
 };
-
 export default MainAppScreen;

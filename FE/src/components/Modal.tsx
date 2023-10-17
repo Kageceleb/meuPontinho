@@ -1,5 +1,5 @@
 import { SafeAreaView, View, TouchableOpacity, Text, SectionList } from "react-native"
-import { styles } from "../styles"
+import { styles } from "../../styles"
 
 
 const DATA = [
@@ -24,10 +24,10 @@ const DATA = [
 export function LogType({ handleClose }) {
 
     return (
-        <SafeAreaView style={{ flex: 1,  backgroundColor:"#DDD" }}>
+        <SafeAreaView style={styles.modal}>
             <TouchableOpacity style={{ flex: 1, zIndex: 9, backgroundColor:"#FFF" }} onPress={handleClose}></TouchableOpacity>
             <SectionList
-            style={styles.secList}
+                style={styles.secList}
                 sections={DATA}
                 keyExtractor={(item, index) => item + index}
                 renderItem={({ item }) => (
