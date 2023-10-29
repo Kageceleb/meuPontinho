@@ -7,7 +7,14 @@ const Drawer = createDrawerNavigator();
 
 export default function DrawerRoutes() {
     return (
-        <Drawer.Navigator screenOptions={{ title: ''}}>
+        <Drawer.Navigator screenOptions={{ title: '' }}>
+            <Drawer.Screen
+                name="main"
+                component={StackRoutes}
+                options={{
+                    drawerLabel: 'rotasMain'
+                }}
+            />
             <Drawer.Screen
                 name="home"
                 component={TabRoutes}
@@ -15,12 +22,6 @@ export default function DrawerRoutes() {
                     drawerLabel: 'titulo'
 
                 }}
-            />
-            <Drawer.Screen
-            name="main"
-            component={StackRoutes}
-            options={{
-                drawerLabel: 'rotasMain' }}
             />
 
         </Drawer.Navigator>
