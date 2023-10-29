@@ -15,13 +15,16 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  ra   BigInt
-  hash String
+  email String @unique
+  hash  String
 
   firstName String?
   lastName  String?
 
-  userType String?
+  userType    String?
+  internships Internship[]
+
+  // @@map("users")
 }
 
 model ClokIn {
@@ -31,6 +34,8 @@ model ClokIn {
   //flag      Flag?
   locationLat String
   locationLon String
+
+  //@@map("clockins")
 }
 
 model Internship {
@@ -42,6 +47,15 @@ model Internship {
   supervisorTeacher String
   supervisorIntern  String
 
-  locationLat String
-  locationLon String
+  locationLat String?
+  locationLon String?
+
+  description String?
+  title       String?
+  link        String?
+
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
+
+  //@@map("internships")
 }

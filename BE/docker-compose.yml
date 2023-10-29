@@ -12,3 +12,5 @@ services:
       - anima
 networks:
   anima:
+
+# docker compose up dev-db -d
