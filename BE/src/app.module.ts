@@ -7,6 +7,12 @@ import { ClockInModule } from './clock-in/clock-in.module';
 import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
-  imports: [ConfigModule, AuthModule, UserModule, ClockInModule, PrismaModule],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    AuthModule,
+    UserModule,
+    ClockInModule,
+    PrismaModule,
+  ],
 })
 export class AppModule {}
