@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MeuPontinhoXama.Pages.Calendar">
+    <ContentPage.Content>
+        
+        <StackLayout Spacing="0">
+
+            <StackLayout HeightRequest="80" BackgroundColor="#8F5EFF">
+                
+                <Label Text="Calendário"
+                       TextColor="#fff"
+                       FontSize="26"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalOptions="CenterAndExpand"
+                       />
+                
+            </StackLayout>
+
+            <FlexLayout HeightRequest="60">
+
+                <Button Text="Anterior"
+                        WidthRequest="100"
+                        Margin="5,0,0,0"
+                       />
+
+                <Label Text="Novembro"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       FlexLayout.Grow="1" 
+                       HorizontalOptions="FillAndExpand"
+                       />
+
+                <Button Text="Próximo"
+                        WidthRequest="100"
+                        Margin="0,0,5,0"
+                       />
+
+            </FlexLayout>
+
+            <ContentView BackgroundColor="#8F5EFF" HeightRequest="5" />
+
+            <ScrollView Orientation="Horizontal" Padding="5">
+
+                <StackLayout x:Name="CalendarSlider" Orientation="Horizontal" HeightRequest="90">
+
+                    <Button Text="01" WidthRequest="95" FontSize="30" BackgroundColor="Transparent" TextColor="#6A47CC" CornerRadius="10" />
+
+                    <Button Text="04" WidthRequest="95" FontSize="30" BackgroundColor="#8F5EFF" TextColor="#fff" CornerRadius="10" />
+
+                    <Button Text="06" WidthRequest="95" FontSize="30" BackgroundColor="Transparent" TextColor="#6A47CC" BorderColor="#8F5EFF" BorderWidth="2" CornerRadius="10" />
+
+                    <Button Text="07" WidthRequest="95" FontSize="30" BackgroundColor="Transparent" TextColor="#6A47CC" CornerRadius="10" />
+
+                    <Button Text="08" WidthRequest="95" FontSize="30" BackgroundColor="Gold" TextColor="#6A47CC" CornerRadius="10" />
+
+                </StackLayout>
+                
+            </ScrollView>
+
+            <ContentView BackgroundColor="#8F5EFF" HeightRequest="5" />
+
+            <FlexLayout BackgroundColor="#fff" HeightRequest="80">
+                
+                <StackLayout Orientation="Vertical" FlexLayout.Grow="1">
+
+                    <Label Text="Entrada" FontSize="16" HorizontalTextAlignment="Center" Margin="0,15,0,0"/>
+
+                    <Label Text="08:00" FontSize="16" HorizontalTextAlignment="Center"/>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" FlexLayout.Grow="1">
+
+                    <Label Text="Saída" FontSize="16" HorizontalTextAlignment="Center" Margin="0,15,0,0"/>
+
+                    <Label Text="--:--" FontSize="16" HorizontalTextAlignment="Center"/>
+
+                </StackLayout>
+                
+            </FlexLayout>
+
+            <ContentView BackgroundColor="#8F5EFF" HeightRequest="5" />
+
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" BackgroundColor="#6A47CC">
+
+                <Button x:Name="BtCalendarDiary" 
+                        Text="Relatório Diário"
+                        HorizontalOptions="Center"
+                        TextColor="#6A47CC"
+                        BorderWidth="2"
+                        BorderColor="#6A47CC"
+                        CornerRadius="10"
+                        WidthRequest="300"
+                        Margin="0,20,0,0"
+                        />
+
+                <Button x:Name="BtCalendarBack" Text="Voltar" Clicked="BtCalendarBack_Clicked" 
+                        HorizontalOptions="Center"
+                        VerticalOptions="EndAndExpand"
+                        BackgroundColor="#fff"
+                        TextColor="#6A47CC"
+                        BorderWidth="2"
+                        BorderColor="#6A47CC"
+                        CornerRadius="10"
+                        WidthRequest="200"
+                        Margin="0,0,0,50"/>
+
+            </StackLayout>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

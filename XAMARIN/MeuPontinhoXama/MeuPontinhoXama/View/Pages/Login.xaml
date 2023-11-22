@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MeuPontinhoXama.Pages.Login">
+    
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Image  Source="anima.png"
+                    HeightRequest="120"
+                    WidthRequest="120"
+                    HorizontalOptions="Center"
+                    />
+            <Image  Source="meu_pontinho.png"
+                    HeightRequest="150"
+                    WidthRequest="150"
+                    HorizontalOptions="Center"
+                    />
+
+            <Label  Text="Login"
+                    HorizontalOptions="StartAndExpand"
+                    Margin="30,0,0,0"
+                    />
+            <Entry  x:Name="LoginUser" 
+                    Keyboard="Email" 
+                    Placeholder="numerodoRA@ulife.com.br" 
+                    ReturnType="Next"
+                    HorizontalOptions="StartAndExpand"
+                    Margin="30,0,0,0"
+                    WidthRequest="320"
+                    />
+            
+            <Label  Text="Senha"
+                    HorizontalOptions="StartAndExpand"
+                    Margin="30,15,0,0"
+                    />
+            <Entry  x:Name="LoginPassword" 
+                    Keyboard="Default"
+                    IsPassword="True"
+                    Placeholder="Insira sua senha"
+                    ReturnType="Done"
+                    HorizontalOptions="StartAndExpand"
+                    Margin="30,0,0,0"
+                    WidthRequest="320"
+                    />
+
+            <Button x:Name="BtForgetPassword" 
+                    Clicked="BtForgetPassword_Clicked"
+                    Text="Esqueci minha senha"
+                    HorizontalOptions="StartAndExpand"
+                    Margin="25,10,0,25"
+                    BackgroundColor="Transparent"
+                    TextColor="CornflowerBlue"
+                    />
+
+            <Button x:Name="BtLogin"
+                    Clicked="BtLogin_Clicked"
+                    Text="Entrar" 
+                    HorizontalOptions="Center"
+                    BackgroundColor="Blue"
+                    TextColor="White"
+                    CornerRadius="5"
+                    WidthRequest="250"
+                    />
+            <FlexLayout Margin="30,20,0,0">
+                
+                <CheckBox x:Name="CheckStayLogged" 
+                        Margin="45,0,0,0"
+                        />
+                <Label  Text="Mantenha-me conectado"
+                        FontSize="18"
+                        HorizontalTextAlignment="Center"
+                        Margin="0,2,0,0" />
+
+            </FlexLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>
