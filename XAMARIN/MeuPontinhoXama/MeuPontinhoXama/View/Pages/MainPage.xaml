@@ -75,7 +75,7 @@
 
             <ContentView BackgroundColor="#8F5EFF" HeightRequest="5" />
 
-            <maps:Map x:Name="MapsDisplay" />
+            <maps:Map x:Name="MapsDisplay" MyLocationEnabled="True"/>
 
             <ContentView BackgroundColor="#8F5EFF" HeightRequest="5" />
 

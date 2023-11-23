@@ -14,6 +14,7 @@ namespace MeuPontinhoXama {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             NavigationPage.SetHasBackButton(this, false);
+
         }
 
         private void BtCheckin_Clicked(object sender, EventArgs e) {

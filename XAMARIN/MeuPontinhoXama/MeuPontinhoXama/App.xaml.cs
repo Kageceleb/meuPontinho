@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Plugin.Permissions.Abstractions;
+using Plugin.Permissions;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,6 +13,7 @@ namespace MeuPontinhoXama {
         }
 
         protected override void OnStart() {
+            CheckAndRequestPermissions();
         }
 
         protected override void OnSleep() {
@@ -18,5 +21,15 @@ namespace MeuPontinhoXama {
 
         protected override void OnResume() {
         }
+
+        private async void CheckAndRequestPermissions() {
+            try {
+                await CrossPermissions.Current.RequestPermissionAsync<LocationPermission>();
+
+            } catch (Exception e) {
+
+            }
+        }
+
     }
 }
