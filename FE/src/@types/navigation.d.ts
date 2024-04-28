@@ -3,6 +3,7 @@ export declare global{
         interface RootParamList{
             login:undefined
             main:undefined
+            createAccount:undefined
 
         }
     }
